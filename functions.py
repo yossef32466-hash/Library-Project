@@ -43,13 +43,15 @@ def enter_the_book_details():
         except:
             ValueError
             continue    
+    while True:
+        for dicti in books: 
+            if dicti['name'] == name and dicti['author'] == author: 
+                print("The book is available in the library.") 
+                return None
+         
+        return {"id":len(books) ,"name":name, "author": author, "year": year, "available": True}
 
-        for dicti in books:
-            if dicti["name"] == name and dicti["author"] == author:
-                print("The book already exists.")
-        enter_the_book_details()
-    book = {"name": name, "author": author, "year": year, "available": True}
-    return book
+   
 
 def add_book(book):
     books.append(book)
@@ -78,4 +80,4 @@ def borrow_book(book_id):
             if dicti["id"] == book_id:
                 dicti["available"] = False
                 break
-
+     
