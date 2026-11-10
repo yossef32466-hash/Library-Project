@@ -69,15 +69,54 @@ def check_book_id(book_id):
     while True:
         for dicti in books:
             if dicti["id"] == book_id:
-                break
-            else:
-                print("The book is not in the library.")
-                continue
-        return dicti["available"] == True
+                if dicti["available"] == True:
+                    print("The book is not in the library.")
+        return book_id
 
 def borrow_book(book_id):
     for dicti in books:
             if dicti["id"] == book_id:
                 dicti["available"] = False
                 break
-     
+
+
+
+def return_book(book_id):
+    for dicti in books:
+        if dicti["id"] == book_id:
+            print(book_id)
+
+            if dicti["available"] == True:
+                dicti["available"] == False
+            else:
+                print("The book is already in the library.")
+        break
+
+
+
+def valid_int_id():            
+    while True:
+        try:
+            book_id = (int(input("Insert the id book")).strip())           
+            return book_id
+        except:
+            print("It must be a number.")
+
+
+
+def get_available_books():
+    for dicti in books:
+        if dicti["available"] == True:
+            print(dicti)
+
+
+def search_book_bt_author(auther):
+    for dicti in books:
+        if dicti["author"] == auther:
+            print(dicti)
+    
+    return None 
+
+def get_book_auther():
+    book_auther = input("Enter the book auther: ").strip()
+    return book_auther

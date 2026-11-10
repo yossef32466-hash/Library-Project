@@ -1,6 +1,6 @@
 from print_for_users import menu_printing
 from validation import input_validation
-from functions import display_books, borrow_book, check_book_id, input_book_id, get_book_name, search_book, enter_the_book_details, add_book
+from functions import display_books, get_book_auther, search_book_bt_author, get_available_books, return_book, borrow_book, check_book_id, input_book_id, get_book_name, search_book, enter_the_book_details, add_book
 from data import books
 def show_menu_and_get_selection():
     user_input = ""
@@ -29,17 +29,21 @@ def show_menu_and_get_selection():
             borrow_book(book_id)
 
         if valid_input == 5:
-            pass
-
+            book_id = input_book_id()
+            book_id = check_book_id(book_id)
+            return_book(book_id)
+        
+        
         if valid_input == 6:
-            pass
+            get_available_books()
 
         if valid_input == 7:
-            pass
+            book_auther = get_book_auther()
+            search_book_bt_author(book_auther)
 
 
         if valid_input == 8:
-            pass
+            break
 
 
 

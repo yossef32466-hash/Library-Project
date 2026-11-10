@@ -12,21 +12,19 @@ def input_validation(in_user):
 
 
 def name_validation(name):
-    if not isinstance(name, str):
+    if not isinstance(name, str) or name == "":
         print("Name must be a string")
         return False
     return True
 
 def author_validation(author):
-    if not isinstance(author, str):
+    if not isinstance(author, str) or  author == "":
         print("Author must be a string")
         return False
     return True
 
 def year_validation(year):
-    print(type(year))
     if not isinstance(year, int) or year < 1:
-        print(type(year))
         print("Year must be a positive number")
         return False
     return True
